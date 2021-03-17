@@ -1,2 +1,9 @@
-The VOC2007 images/annotations files have changed. Using the notebooks to correct the check for the errors is useless. This happened after I almost finished first part Single Stage Yolo Object detector. For second part you can read 
-https://medium.com/@fractaldle/guide-to-build-faster-rcnn-in-pytorch-95b10c273439 for detailed explanation on how to build second stage detectors from scratch
+Be careful, you might encure a problem with the dataset. 
+
+using this function call 
+
+  train_dataset = datasets.VOCDetection(image_root, year='2007', image_set=split,
+                                    download=True) 
+                                    
+at the time this is committed, downloaded the test set part of the dataset. I have to edit the pytorch module VOCDetection in order to download the training part. 
+I will raise an issue to torchvision.datasets maintainers to fix that. 
